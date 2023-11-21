@@ -19,12 +19,10 @@ jobs:
           xcode-version: '13.1'
       - name: Configure
         run: |
-          cd "${GITHUB_WORKSPACE}"
-          cp "configurations/Release.xcconfig" "Telegram-Mac/Release.xcconfig"
+          cp "configurations/Stable.xcconfig" "Telegram-Mac/Release.xcconfig"
           sh scripts/configure_frameworks.sh
       - name: Build
         run: |
-          cd "${GITHUB_WORKSPACE}"
           export FASTLANE_XCODE_LIST_TIMEOUT=120
           fastlane Release
       - uses: actions/upload-artifact@master
